@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_consumer/services/github_API.dart';
 import 'package:github_consumer/user.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,9 +24,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   _searchBarArea() => Container(
-        color: Colors.green,
-        height: MediaQuery.of(context).size.height * 0.1,
-      );
+          margin: EdgeInsets.all(15.0),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter a git name',
+                ),
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('Search'),
+                onPressed: () => {GithubAPI.getAll("react")},
+              )
+            ],
+          ),
+        );
 
   /// TODO: ListView
 //  _resultArea() => Container(
@@ -34,7 +50,7 @@ class _HomePageState extends State<HomePage> {
 //  );
   _resultArea() => Container(
         color: Colors.amber,
-        height: MediaQuery.of(context).size.height * 0.7,
+        height: MediaQuery.of(context).size.height * 0.6991,
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: <Widget>[

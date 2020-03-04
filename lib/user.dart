@@ -8,7 +8,7 @@ class User {
   final String avatar;
 
   factory User.fromJSON(Map<String, dynamic> userFromServer) => User(
-    url: userFromServer[''] as String,
+    url: userFromServer['html_url'] as String,
     ratingStars: userFromServer[''] as int,
     avatar: userFromServer[''] as String,
   );
